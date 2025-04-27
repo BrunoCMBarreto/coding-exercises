@@ -34,11 +34,3 @@ def valid_emails(users: pd.DataFrame) -> pd.DataFrame:
     return users[(email_decomp_df.loc[:,0].str[0].isin(letters)) & 
                  (email_decomp_df.loc[:,0].apply(lambda string: all(char in valid_chars for char in string))) & 
                  (email_decomp_df.loc[:,1] == "leetcode.com")]
-
-# Claude Solution:
-
-# SELECT user_id, name, mail
-# FROM Users
-# WHERE mail REGEXP '^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode\\.com$';
-
-# ... This is not even python
