@@ -28,19 +28,3 @@ def second_highest_salary(employee: pd.DataFrame) -> pd.DataFrame:
     else:
         nth_highest_value = None
     return pd.DataFrame([nth_highest_value], columns=["SecondHighestSalary"])
-
-# Claude Response
-
-# import pandas as pd
-# import numpy as np
-
-# def second_highest_salary(employee: pd.DataFrame) -> pd.DataFrame:
-#     # Handle empty dataframe or single unique salary case
-#     unique_salaries = employee['salary'].drop_duplicates()
-#     if len(unique_salaries) < 2:
-#         return pd.DataFrame({'SecondHighestSalary': [None]})
-        
-#     # Get the second highest using nlargest(2) and take the last element
-#     second_highest = unique_salaries.nlargest(2).iloc[-1]
-    
-#     return pd.DataFrame({'SecondHighestSalary': [second_highest]})

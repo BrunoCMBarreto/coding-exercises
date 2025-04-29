@@ -29,16 +29,3 @@ import pandas as pd
 def order_scores(scores: pd.DataFrame) -> pd.DataFrame:
     scores["rank"] = scores.score.rank(method="dense", ascending=False)
     return scores.sort_values(by="score", ascending=False).loc[:,["score","rank"]]
-
-# Claude Response:
-
-# import pandas as pd
-
-# def rank_scores(scores: pd.DataFrame) -> pd.DataFrame:
-#     # Create 'rank' column using dense_rank method
-#     scores['rank'] = scores['score'].rank(method='dense', ascending=False)
-    
-#     # Sort by score in descending order
-#     result = scores.sort_values(by='score', ascending=False)[['score', 'rank']]
-    
-#     return result
