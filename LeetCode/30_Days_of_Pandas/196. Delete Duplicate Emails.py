@@ -31,13 +31,3 @@ def delete_duplicate_emails(person: pd.DataFrame) -> None:
     person.sort_values(by="id", inplace=True)
     person.drop_duplicates(subset="email", inplace=True)
 
-# Claude Response:
-
-# import pandas as pd
-
-# def delete_duplicate_emails(person: pd.DataFrame) -> None:
-#     # Sort by id to ensure we keep the smallest id when dropping duplicates
-#     person.sort_values(by='id', inplace=True)
-    
-#     # Drop duplicates based on email, keeping the first occurrence (smallest id)
-#     person.drop_duplicates(subset=['email'], keep='first', inplace=True)

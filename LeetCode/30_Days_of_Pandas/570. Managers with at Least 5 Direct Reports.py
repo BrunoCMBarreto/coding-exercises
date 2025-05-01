@@ -32,19 +32,3 @@ def find_managers(employee: pd.DataFrame) -> pd.DataFrame:
     managers = (employee.groupby(by="managerId").count().id >= 5).reset_index()
     managers = managers[managers.id]
     return employee[employee.id.isin(managers.managerId)][["name"]]
-
-# Claude Response
-
-# import pandas as pd
-
-# def find_managers(employee: pd.DataFrame) -> pd.DataFrame:
-#     # Step 1: Count direct reports for each manager
-#     manager_counts = employee['managerId'].value_counts()
-    
-#     # Step 2: Filter managers with at least 5 reports
-#     managers_with_five_plus = manager_counts[manager_counts >= 5].index
-    
-#     # Step 3: Get the names of these managers
-#     result = employee[employee['id'].isin(managers_with_five_plus)][['name']]
-    
-#     return result

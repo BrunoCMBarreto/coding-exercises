@@ -46,39 +46,3 @@ class Solution:
                         max_container_area = current_area
                         current_max_container_height = current_container_height
         return max_container_area
-
-# Claude Response:
-
-# def maxArea(height: list[int]) -> int:
-#     """
-#     Find the maximum area of water that can be contained between two vertical lines.
-    
-#     Args:
-#         height: List of heights representing vertical lines
-        
-#     Returns:
-#         The maximum area of water that can be contained
-#     """
-#     left = 0
-#     right = len(height) - 1
-#     max_area = 0
-    
-#     while left < right:
-#         # Calculate width between the two lines
-#         width = right - left
-        
-#         # Calculate the area using the shorter line as height
-#         area = width * min(height[left], height[right])
-        
-#         # Update the maximum area
-#         max_area = max(max_area, area)
-        
-#         # Move the pointer of the shorter line inward
-#         if height[left] < height[right]:
-#             left += 1
-#         else:
-#             right -= 1
-    
-#     return max_area
-
-# The same solution as my first listed solution
