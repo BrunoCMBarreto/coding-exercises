@@ -26,16 +26,3 @@ import pandas as pd
 def actors_and_directors(actor_director: pd.DataFrame) -> pd.DataFrame:
     times_cooperated = actor_director.groupby(by=["actor_id","director_id"]).count().reset_index()
     return times_cooperated[times_cooperated.timestamp >= 3].loc[:,["actor_id","director_id"]]
-
-# Claude Response:
-
-# import pandas as pd
-
-# def actors_and_directors(actor_director: pd.DataFrame) -> pd.DataFrame:
-#     # Group by actor_id and director_id pair and count occurrences
-#     cooperation_counts = actor_director.groupby(['actor_id', 'director_id']).size().reset_index(name='count')
-    
-#     # Filter pairs with at least 3 collaborations
-#     result = cooperation_counts[cooperation_counts['count'] >= 3][['actor_id', 'director_id']]
-    
-#     return result
