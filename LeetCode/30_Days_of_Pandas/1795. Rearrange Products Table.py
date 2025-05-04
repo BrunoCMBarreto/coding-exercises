@@ -28,30 +28,3 @@ import pandas as pd
 
 def rearrange_products_table(products: pd.DataFrame) -> pd.DataFrame:
         return pd.melt(products,id_vars=['product_id'],value_vars=['store1','store2','store3'],var_name='store',value_name='price').dropna(subset=['price'])
-
-# Claude Response:
-
-# import pandas as pd
-
-# def rearrange_products_table(products: pd.DataFrame) -> pd.DataFrame:
-#     # Use melt to transform from wide to long format
-#     result = pd.melt(
-#         products,
-#         id_vars=['product_id'],
-#         value_vars=['store1', 'store2', 'store3'],
-#         var_name='store',
-#         value_name='price'
-#     )
-    
-#     # Remove rows with null prices
-#     result = result.dropna(subset=['price'])
-    
-#     # Clean up store names by removing the number (store1 -> store)
-#     result['store'] = result['store'].str.replace('store', '')
-    
-#     return result
-
-# ...
-# This LLM response is odd, seeing as how it randomly concludes by stating that it should remove the number from the store column entries
-# (which would completely defeat the point of having it), before proceeding to remove the word "store" instead (Which is more reasonable 
-# but still completely unnecessary)

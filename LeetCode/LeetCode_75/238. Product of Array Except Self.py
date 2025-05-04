@@ -15,23 +15,3 @@ class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         total_product = math.prod(nums)
         return [total_product//nums[ind] if nums[ind] != 0 else math.prod(nums[:ind] + nums[ind+1:]) for ind in range(len(nums))]
-
-# Claude Response:
-
-# def productExceptSelf(nums: list[int]) -> list[int]:
-#     n = len(nums)
-#     answer = [1] * n
-    
-#     # Calculate prefix products
-#     prefix = 1
-#     for i in range(n):
-#         answer[i] = prefix
-#         prefix *= nums[i]
-    
-#     # Calculate suffix products and multiply them with prefix products
-#     suffix = 1
-#     for i in range(n-1, -1, -1):
-#         answer[i] *= suffix
-#         suffix *= nums[i]
-    
-#     return answer

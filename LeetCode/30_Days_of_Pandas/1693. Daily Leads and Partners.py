@@ -29,19 +29,3 @@ import pandas as pd
 def daily_leads_and_partners(daily_sales: pd.DataFrame) -> pd.DataFrame:
     grouped_sales = daily_sales.groupby(["date_id","make_name"]).agg({"lead_id":"nunique","partner_id":"nunique"}).reset_index().rename(columns={"lead_id":"unique_leads","partner_id":"unique_partners"})
     return grouped_sales[["date_id","make_name","unique_leads","unique_partners"]]
-
-# Claude Response:
-
-# import pandas as pd
-
-# def daily_leads_and_partners(daily_sales: pd.DataFrame) -> pd.DataFrame:
-#     # Group by date_id and make_name, then count distinct lead_id and partner_id
-#     result = daily_sales.groupby(['date_id', 'make_name']).agg({
-#         'lead_id': 'nunique',
-#         'partner_id': 'nunique'
-#     }).reset_index()
-    
-#     # Rename columns to match expected output
-#     result.columns = ['date_id', 'make_name', 'unique_leads', 'unique_partners']
-    
-#     return result

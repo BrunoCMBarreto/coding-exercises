@@ -26,18 +26,3 @@ import pandas as pd
 
 def find_patients(patients: pd.DataFrame) -> pd.DataFrame:
     return patients[patients.conditions.str.split(expand=True).applymap(lambda string: False if string is None else string[:5] == "DIAB1").any(axis=1)]
-
-# Claude Response:
-
-# import pandas as pd
-
-# def find_patients(patients: pd.DataFrame) -> pd.DataFrame:
-#     # We need to find condition codes that start with DIAB1
-#     # These can appear either at the beginning of the string or after a space
-#     result = patients[
-#         patients['conditions'].str.contains(r'(^DIAB1|\s+DIAB1)', regex=True)
-#     ]
-    
-#     return result
-
-# Sadly this does not correctly check that DIAB1 only shows up at the beginning of each condition code

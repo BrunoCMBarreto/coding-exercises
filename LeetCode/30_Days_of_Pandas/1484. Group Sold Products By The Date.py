@@ -29,30 +29,3 @@ def categorize_products(activities: pd.DataFrame) -> pd.DataFrame:
     products_counted = activities.groupby("sell_date").nunique().rename(columns={"product":"num_sold"})
     activities_counted = pd.merge(products_counted, product_series, on="sell_date")
     return activities_counted
-
-# Claude Response:
-
-# import pandas as pd
-
-# def categorize_products(activities: pd.DataFrame) -> pd.DataFrame:
-#     # Group by sell_date
-#     grouped = activities.groupby('sell_date')
-    
-#     # Calculate the number of unique products per date
-#     product_count = grouped['product'].nunique().reset_index()
-#     product_count = product_count.rename(columns={'product': 'num_sold'})
-    
-#     # Get unique products for each date and concatenate them
-#     products_list = grouped['product'].unique().apply(lambda x: sorted(x))
-#     products_str = products_list.apply(lambda x: ','.join(x)).reset_index()
-#     products_str = products_str.rename(columns={'product': 'products'})
-    
-#     # Merge the two results
-#     result = pd.merge(product_count, products_str, on='sell_date')
-    
-#     # Ensure the result is sorted by sell_date
-#     result = result.sort_values('sell_date')
-    
-#     return result
-
-# Remarkably close to my own response
