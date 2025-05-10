@@ -35,35 +35,3 @@ class Solution:
                 for num_char in str(count):
                     chars.append(num_char)
         return len(chars)
-
-# Claude Response:
-
-# def compress(chars: list[str]) -> int:
-#     if not chars:
-#         return 0
-        
-#     write_index = 0  # Position where we write the compressed result
-#     count = 1        # Count of current character
-    
-#     for read_index in range(1, len(chars) + 1):
-#         # When we reach the end of array or a different character
-#         if read_index == len(chars) or chars[read_index] != chars[read_index - 1]:
-#             # Write the character
-#             chars[write_index] = chars[read_index - 1]
-#             write_index += 1
-            
-#             # If count > 1, write the count digits
-#             if count > 1:
-#                 # Convert count to string and write each digit
-#                 count_str = str(count)
-#                 for digit in count_str:
-#                     chars[write_index] = digit
-#                     write_index += 1
-            
-#             # Reset count for the next character
-#             count = 1
-#         else:
-#             # Increment count for consecutive characters
-#             count += 1
-    
-#     return write_index  # This is the new length
