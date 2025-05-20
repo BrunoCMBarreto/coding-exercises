@@ -34,25 +34,3 @@ class Solution:
         return False
 
 
-# Claude Response:
-
-# def increasingTriplet(nums: list[int]) -> bool:
-#     # Initialize first and second to the largest possible values
-#     first = float('inf')  # smallest element seen so far
-#     second = float('inf') # second smallest element seen so far
-    
-#     for num in nums:
-#         # If current number is smaller than the smallest, update first
-#         if num <= first:
-#             first = num
-#         # If current number is between first and second, update second
-#         elif num <= second:
-#             second = num
-#         # If current number is greater than both first and second, we found a triplet
-#         else:
-#             return True
-    
-#     # If we've gone through the entire array without finding a triplet
-#     return False
-
-# ...Legitimately did not know you could simply instantiate an infinite value without numpy
