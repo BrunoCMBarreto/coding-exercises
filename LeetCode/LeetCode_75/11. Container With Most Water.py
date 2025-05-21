@@ -10,6 +10,8 @@
 
 # Return the maximum amount of water a container can store.
 
+# Solution 1: Inwards Exhaustive search
+
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         max_container_area = 0
@@ -29,7 +31,7 @@ class Solution:
         return max_container_area
 
 
-# OR
+# Solution 2: Narrowing search
 
 class Solution:
     def maxArea(self, height: List[int]) -> int:
